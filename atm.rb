@@ -7,17 +7,15 @@ def withdraw(balance, deduction)
   else
     puts "You don't have enough money to do that :("
   end
-  display(balance)
 end
 
 def deposit(balance, deposit)
   balance += deposit
-  display(balance)
 end
 
 def display(balance)
   puts "Balance: "+balance.to_s
-  return(balance)
+  return balance
 end
 
 def action(balance)
@@ -26,11 +24,11 @@ def action(balance)
   if action == 'D' || action == 'd'
     puts "How much do you want to deposit?"
     amount = gets.chomp.to_i
-    deposit(balance, amount)
+    display(deposit(balance, amount))
   elsif action == 'W' || action == 'w'
     puts "How much do you want to withdraw?"
     amount = gets.chomp.to_i
-    withdraw(balance, amount)
+    display(withdraw(balance, amount))
   else
     puts "Error, please enter 'D' or 'W'"
     display(balance)
